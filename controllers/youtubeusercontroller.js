@@ -31,6 +31,7 @@ export const getAboutChannel = async (req, res) => {
 
 export const getchannel = async (req, res) => {
   try {
+
     const options = {
       method: 'GET',
       url: 'https://youtube-search-and-download.p.rapidapi.com/channel',
@@ -44,10 +45,9 @@ export const getchannel = async (req, res) => {
         'X-RapidAPI-Host': 'youtube-search-and-download.p.rapidapi.com'
       }
     };
-    
   
-      const response = await axios.request(options);
-      console.log(response.data);
+    const response = await axios.request(options);
+    res.send(response.data);
   }
   catch (error) {
     return res.send(error);
@@ -57,37 +57,7 @@ export const getchannel = async (req, res) => {
 
 export const getVideoRelated = async (req, res) => {
   try {
-    const options = {
-      method: 'GET',
-      url: 'https://youtube-search-and-download.p.rapidapi.com/video/related',
-      params: {
-        id: 'YQHsXMglC9A',
-        hl: 'en',
-        gl: 'US',
-        next: 'CBQSDRILWVFIc1hNZ2xDOUEYACreAQjQr43tubfzi64BCNi24eOapu-n7AEIgejpz9fcuPajAQjwqMe8v7SEuJ0BCI3CwqDWu4nahAEItNrrwNnAzuQ1CK6-ooCH-Jj5JAik8O-ahq3L1sYBCMb965f10YS4UwiNkaXwtL_gzi4I1vOMu5f7r4HeAQjEuYHvqNfimgwIzvHK75mt1Z27AQjw_7n5yaLZ3_UBCJOq5eCOo-XS_QEIocGSnpeajIsXCN2F2tj65L_4zwEI4KbhwtjP98duCI_C_IbhttbzTAi2gO-y3KbjuZgBCNbN7-m31YCKVmoPd2F0Y2gtbmV4dC1mZWVk'
-      },
-      headers: {
-        'X-RapidAPI-Key': '58d475b4bamsh62ee03188629888p166db1jsn30912dec66dc',
-        'X-RapidAPI-Host': 'youtube-search-and-download.p.rapidapi.com'
-      }
-    };
 
-    const response = await axios.request(options);
-    res.send(response.data);
-
-  }
-  catch (error) {
-    return res.send(error);
-  }
-}
-
-
-
-
-export const getVdeoComments = async (req, res) => {
-  try {
-
-    const axios = require('axios');
 
     const options = {
       method: 'GET',
@@ -97,12 +67,40 @@ export const getVdeoComments = async (req, res) => {
         next: 'Eg0SC1lRSHNYTWdsQzlBGAYyJSIRIgtZUUhzWE1nbEM5QTAAeAJCEGNvbW1lbnRzLXNlY3Rpb24%3D'
       },
       headers: {
-        'X-RapidAPI-Key': 'SIGN-UP-FOR-KEY',
+        'X-RapidAPI-Key': '58d475b4bamsh62ee03188629888p166db1jsn30912dec66dc',
         'X-RapidAPI-Host': 'youtube-search-and-download.p.rapidapi.com'
       }
     };
     const response = await axios.request(options);
-    console.log(response.data);
+    res.send(response.data);
+  }
+
+  catch (error) {
+    return res.send(error);
+  }
+}
+
+
+
+
+export const getVideoComments = async (req, res) => {
+  try {
+
+    const options = {
+      method: 'GET',
+      url: 'https://youtube-search-and-download.p.rapidapi.com/video/comments',
+      params: {
+        id: 'YQHsXMglC9A',
+        next: 'Eg0SC1lRSHNYTWdsQzlBGAYyJSIRIgtZUUhzWE1nbEM5QTAAeAJCEGNvbW1lbnRzLXNlY3Rpb24%3D'
+      },
+      headers: {
+        'X-RapidAPI-Key': '58d475b4bamsh62ee03188629888p166db1jsn30912dec66dc',
+        'X-RapidAPI-Host': 'youtube-search-and-download.p.rapidapi.com'
+      }
+    };
+    
+    const response = await axios.request(options);
+    res.send(response.data);
 
   }
   catch (error) {
@@ -114,7 +112,6 @@ export const getVdeoComments = async (req, res) => {
 export const getTrending = async (req, res) => {
   try {
 
-    const axios = require('axios');
 
     const options = {
       method: 'GET',
@@ -125,13 +122,12 @@ export const getTrending = async (req, res) => {
         gl: 'US'
       },
       headers: {
-        'X-RapidAPI-Key': 'SIGN-UP-FOR-KEY',
+        'X-RapidAPI-Key': '58d475b4bamsh62ee03188629888p166db1jsn30912dec66dc',
         'X-RapidAPI-Host': 'youtube-search-and-download.p.rapidapi.com'
       }
     };
-
     const response = await axios.request(options);
-    console.log(response.data);
+    res.send(response.data);
   }
   catch (error) {
     return res.send(error);
@@ -141,19 +137,19 @@ export const getTrending = async (req, res) => {
 
 export const getvideoinfo = async (req, res) => {
   try {
-    const axios = require('axios');
-
+    
     const options = {
       method: 'GET',
       url: 'https://youtube-search-and-download.p.rapidapi.com/video',
-      params: { id: 'dQw4w9WgXcQ' },
+      params: {id: 'dQw4w9WgXcQ'},
       headers: {
-        'X-RapidAPI-Key': 'SIGN-UP-FOR-KEY',
+        'X-RapidAPI-Key': '58d475b4bamsh62ee03188629888p166db1jsn30912dec66dc',
         'X-RapidAPI-Host': 'youtube-search-and-download.p.rapidapi.com'
       }
     };
+    
     const response = await axios.request(options);
-    console.log(response.data);
+    res.send(response.data);
 
   }
   catch (error) {
@@ -165,7 +161,6 @@ export const getvideoinfo = async (req, res) => {
 
 export const getPlaylist = async (req, res) => {
   try {
-    const axios = require('axios');
 
     const options = {
       method: 'GET',
@@ -175,13 +170,13 @@ export const getPlaylist = async (req, res) => {
         next: '4qmFsgJhEiRWTFBMV3dBeXBBY0ZSZ0tBSUlGcUJyOW95LVpZWm5peGFfRmoaFENBRjZCbEJVT2tOSFZRJTNEJTNEmgIiUExXd0F5cEFjRlJnS0FJSUZxQnI5b3ktWllabml4YV9Gag%3D%3D'
       },
       headers: {
-        'X-RapidAPI-Key': 'SIGN-UP-FOR-KEY',
+        'X-RapidAPI-Key': '58d475b4bamsh62ee03188629888p166db1jsn30912dec66dc',
         'X-RapidAPI-Host': 'youtube-search-and-download.p.rapidapi.com'
       }
     };
 
     const response = await axios.request(options);
-    console.log(response.data);
+    res.send(response.data);
   }
   catch (error) {
     return res.send(error);
@@ -194,7 +189,6 @@ export const getPlaylist = async (req, res) => {
 
 export const getSearch = async (req, res) => {
   try {
-    const axios = require('axios');
 
     const options = {
       method: 'GET',
@@ -211,7 +205,7 @@ export const getSearch = async (req, res) => {
         sort: 'v'
       },
       headers: {
-        'X-RapidAPI-Key': 'SIGN-UP-FOR-KEY',
+        'X-RapidAPI-Key': '58d475b4bamsh62ee03188629888p166db1jsn30912dec66dc',
         'X-RapidAPI-Host': 'youtube-search-and-download.p.rapidapi.com'
       }
     };
