@@ -16,4 +16,4 @@ mongoose.connect('mongodb+srv://annusingh:anusingh58@cluster0.md93vry.mongodb.ne
 .catch((error)=> console.log("db error =>",err))
 
 
-app.listen (7000,()=>console.log("working on 7000"));
+app.listen (6000,()=>console.log("working on 7000"));
